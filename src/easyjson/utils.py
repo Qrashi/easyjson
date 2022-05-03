@@ -1,6 +1,4 @@
-"""
-Utils for handling JSON files
-"""
+"""Utils for handling IO and JSON operations."""
 import json
 from os import path, makedirs
 
@@ -31,9 +29,7 @@ def prepare(file: str, default: str = "{}"):
 
 
 class JSONFile:
-    """
-    A JSON file on the disk
-    """
+    """A JSON file on the disk"""
 
     __filename: str
     json: Union[dict, list]
