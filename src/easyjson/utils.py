@@ -25,9 +25,9 @@ def prepare(file: str, default: str = "{}"):
     """
     if not path.exists(file):
         makedirs(path.dirname(file), exist_ok=True)
-        file = open(file, "w+")
-        file.write(default)
-        file.close()
+        with open(file, "w+") as file:
+            file.write(default)
+            file.close()
 
 
 class JSONFile:
@@ -57,16 +57,6 @@ class JSONFile:
         prepare(self.__filename, default=self.__default)
         with open(self.__filename, "r") as file:
             self.json = json.load(file)
-
-    def __save_default(self):
-        """
-        Save the default data to the disk
-        :return:
-        """
-        prepare(self.__filename, default=self.__default)
-        with open(self.__filename, "w") as file:
-            json.dump(self.__default, file, indent=4, sort_keys=True)
-        self.reload()
 
     def save(self):
         """
