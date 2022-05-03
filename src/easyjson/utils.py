@@ -33,6 +33,7 @@ class JSONFile:
     """
     A JSON file on the disk
     """
+
     __filename: str
     json: Union[dict, list]
     __default: str
