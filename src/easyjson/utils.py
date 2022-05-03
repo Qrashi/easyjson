@@ -25,9 +25,9 @@ def prepare(file: str, default: str = "{}"):
     """
     if not path.exists(file):
         makedirs(path.dirname(file), exist_ok=True)
-        with open(file, "w+") as file:
-            file.write(default)
-            file.close()
+        with open(file, "w+") as writeable:
+            writeable.write(default)
+            writeable.close()
 
 
 class JSONFile:
