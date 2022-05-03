@@ -29,7 +29,7 @@ def load(file: str, mode: str = "r", default: str = "{}") -> TextIO:
     return open(file, mode)
 
 
-class JsonFile:
+class JSONFile:
     """
     A JSON file on the disk
     """
