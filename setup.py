@@ -13,5 +13,5 @@ setuptools.setup(
     long_description=long_description,
     url="https://github.com/Qrashi/easyjson",
     license="GPL3",
-    install_requires=[]
+    install_requires=[],
 )
