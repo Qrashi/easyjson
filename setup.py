@@ -4,14 +4,14 @@ with open("README.md", "r", encoding="utf-8") as readme:
     long_description = readme.read()
 
 setuptools.setup(
-    name="easyjson",
+    name="singlejson",
     version="0.1",
     author="Qrashi",
     author_email="fritz@vibe.ac",
     description="A simple package providing easy to use JSON utilities",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Qrashi/easyjson",
+    url="https://github.com/Qrashi/singlejson",
     license="GPL3",
     classifiers=[
         "Programming Language :: Python :: 3",
