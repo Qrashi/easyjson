@@ -8,25 +8,26 @@ from typing import Union, TextIO
 
 
 def abs_filename(file: str) -> str:
+    """
+    Return the absolute filepath of a file
+    :param file:
+    :return:
+    """
     return path.abspath(file)
 
 
-def generate(file: str, default: str = "{}") -> bool:
+def prepare(file: str, default: str = "{}"):
+    """
+    Prepare a file (check if it exists and create it if not)
+    :param file: File to open
+    :param default: default to save if file is nonexistent
+    :return: A TextIO representing the file
+    """
     if not path.exists(file):
         makedirs(path.dirname(file), exist_ok=True)
-    file = open(file, "w+")
-    file.write(default)
-    file.close()
-    return False
-
-
-def check(file: str) -> bool:
-    return path.exists(file)
-
-
-def load(file: str, mode: str = "r", default: str = "{}") -> TextIO:
-    generate(file, default)
-    return open(file, mode)
+        file = open(file, "w+")
+        file.write(default)
+        file.close()
 
 
 class JSONFile:
@@ -53,7 +54,8 @@ class JSONFile:
         Reload from disk
         :return:
         """
-        with load(self.__filename, default=self.__default) as file:
+        prepare(self.__filename, default=self.__default)
+        with open(self.__filename, "r") as file:
             self.json = json.load(file)
 
     def __save_default(self):
@@ -61,7 +63,8 @@ class JSONFile:
         Save the default data to the disk
         :return:
         """
-        with load(self.__filename, mode="w", default=self.__default) as file:
+        prepare(self.__filename, default=self.__default)
+        with open(self.__filename, "w") as file:
             json.dump(self.__default, file, indent=4, sort_keys=True)
         self.reload()
 
@@ -70,5 +73,6 @@ class JSONFile:
         Save the data to the disk
         :return:
         """
-        with load(self.__filename, mode="w", default=self.__default) as file:
+        prepare(self.__filename, default=self.__default)
+        with open(self.__filename, "w") as file:
             json.dump(self.json, file, indent=4, sort_keys=True)
