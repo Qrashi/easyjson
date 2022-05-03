@@ -7,8 +7,10 @@ pip install easyjson
 ```
 
 Usage:
+
 ```python
-import easyjson
+
+from src import easyjson
 
 file = easyjson.open('file.json')  # Load file.json
 file.json = {"key": "value"}  # Change values of JSON file.
@@ -18,8 +20,10 @@ easyjson.sync()  # Sync all changes to disk
 ```
 
 Other operations possible:
+
 ```python
-import easyjson
+
+from src import easyjson
 
 file = easyjson.open('file.json')  # Load file.json
 file.save()  # Save the current contents
