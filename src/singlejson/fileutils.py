@@ -2,7 +2,7 @@
 import json
 from os import path, makedirs
 
-from typing import Union, TextIO
+from typing import Union
 
 
 def abs_filename(file: str) -> str:
