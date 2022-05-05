@@ -5,13 +5,13 @@ open a JSON file using open()
 if you call open with the same filename again, the same object will be returned.
 sync all changes to disk using sync()
 """
-from typing import List as _List
+import typing
 
 from utils import abs_filename as _abs_filename
 from utils import JSONFile
 
 VERSION: str = "0.1"  # Current version
-_file_pool: _List[JSONFile] = {}
+_file_pool: typing.Dict[str, JSONFile] = {}
 
 
 def load(filename: str, default: str = "{}") -> JSONFile:
@@ -32,5 +32,5 @@ def sync():
     Sync changes to the filesystem
     :return:
     """
-    for file in _file_pool:
+    for file in _file_pool.values():
         file.save()
