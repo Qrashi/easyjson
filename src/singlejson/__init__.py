@@ -10,7 +10,7 @@ import typing
 from utils import abs_filename as _abs_filename
 from utils import JSONFile
 
-VERSION: str = "0.1"  # Current version
+VERSION: str = "0.2"  # Current version
 _file_pool: typing.Dict[str, JSONFile] = {}
 
 
