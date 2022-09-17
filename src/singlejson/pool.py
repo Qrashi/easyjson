@@ -1,6 +1,4 @@
-"""
-The main files handling the file pool.
-"""
+"""The main files handling the file pool."""
 from typing import Dict
 from .fileutils import JSONFile, abs_filename
 

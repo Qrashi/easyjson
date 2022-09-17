@@ -29,7 +29,7 @@ file2 = singlejson.load('file.json')
 print(file2.json["fun"])  # will output True
 ```
 To save the file back to the disk we call ``file.save()``<br>
-Maybe you don't want your program to save file contents only upon successful execution, then you just have to call ``singlejson.sync()`` at the end of your programm to save all changes to the filesystem.
+Maybe you don't want your program to save file contents only upon successful execution, then you just have to call ``singlejson.sync()`` at the end of your program to save **all** changes to the filesystem.
 
 If the requested file doesn't exist, the file and its parent directories will be created and the "default" values will be written to the file.
 Should the root "node" of your JSON be a List, you may specify that the default to save is an empty list using ``singlejson.load(file, default="[]")``
