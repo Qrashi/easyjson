@@ -2,7 +2,7 @@
 import json
 from os import path, makedirs
 
-from typing import Union
+from typing import Union, Any
 
 
 def abs_filename(file: str) -> str:
@@ -35,14 +35,17 @@ class JSONFile:
     json: Union[dict, list]
     __default: str
 
-    def __init__(self, filename: str, default: str = "{}"):
+    def __init__(self, filename: str, default: Any = "{}"):
         """
         Create a new json file instance and load data from disk
         :param filename: filename
         :param default: default data to save if file is empty / nonexistent
         """
         self.__filename = filename
-        self.__default = default
+        if type(default) is str:
+            self.__default = default
+        else:
+            self.__default = json.dumps(default, indent=4, sort_keys=True)
         self.reload()
 
     def reload(self):

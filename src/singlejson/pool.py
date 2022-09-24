@@ -1,11 +1,11 @@
 """The main files handling the file pool."""
-from typing import Dict
+from typing import Dict, Any
 from .fileutils import JSONFile, abs_filename
 
 _file_pool: Dict[str, JSONFile] = {}
 
 
-def load(filename: str, default: str = "{}") -> JSONFile:
+def load(filename: str, default: Any = "{}") -> JSONFile:
     """
     Open a JsonFile (synchronously)
     :param filename: Path to JSON file on disk

@@ -10,4 +10,4 @@ from .pool import load, sync
 
 __all__ = ["JSONFile", "load", "sync"]
 
-VERSION: str = "0.3"
+VERSION: str = "0.2.2"

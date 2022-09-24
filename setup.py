@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as readme:
 
 setuptools.setup(
     name="singlejson",
-    version="0.2.1",
+    version="0.2.2",
     author="Qrashi",
     author_email="fritz@vibe.ac",
     description="A simple package providing easy to use JSON utilities",
