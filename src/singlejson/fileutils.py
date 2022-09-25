@@ -2,7 +2,7 @@
 import json
 from os import path, makedirs
 
-from typing import Union, Any
+from typing import Any
 
 
 def abs_filename(file: str) -> str:
@@ -32,11 +32,11 @@ class JSONFile:
     """A JSON file on the disk"""
 
     __filename: str
-    json: Union[dict, list]
+    json: Any
     __default: str
 
     def __init__(self, filename: str, default: Any = "{}"):
-        """
+        """2
         Create a new json file instance and load data from disk
         :param filename: filename
         :param default: default data to save if file is empty / nonexistent
