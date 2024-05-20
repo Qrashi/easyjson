@@ -1,13 +1,6 @@
-"""
-A package for easily maintaining JSON files
+"""Load and save json files easily across files."""
+from singlejson.fileutils import JSONFile
+from singlejson.pool import load, sync
+from singlejson.version import __version__
 
-open a JSON file using open()
-if you call open with the same filename again, the same object will be returned.
-sync all changes to disk using sync()
-"""
-from .fileutils import JSONFile
-from .pool import load, sync
-
-__all__ = ["JSONFile", "load", "sync", "VERSION"]
-
-VERSION: str = "0.2.3"
+__all__ = ["JSONFile", "load", "sync"]

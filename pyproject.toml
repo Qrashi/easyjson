@@ -1,3 +1,8 @@
 [build-system]
 requires = ["setuptools>=42"]
 build-backend = "setuptools.build_meta"
+
+[tool]
+dynamic = ["version"]
+name = "singlejson"
+description = "Load and save json files easily across files."

@@ -1,5 +1,5 @@
 """Utils for handling IO and JSON operations."""
-import json
+from json import dump, dumps, load
 from os import path, makedirs
 
 from typing import Any
@@ -29,14 +29,15 @@ def prepare(file: str, default: str = "{}"):
 
 
 class JSONFile:
-    """A JSON file on the disk"""
-
+    """
+    A .json file on the disk.
+    """
     __filename: str
     json: Any
     __default: str
 
     def __init__(self, filename: str, default: Any = "{}"):
-        """2
+        """
         Create a new json file instance and load data from disk
         :param filename: filename
         :param default: default data to save if file is empty / nonexistent
@@ -45,7 +46,7 @@ class JSONFile:
         if type(default) is str:
             self.__default = default
         else:
-            self.__default = json.dumps(default, indent=4, sort_keys=True)
+            self.__default = dumps(default, indent=4, sort_keys=True)
         self.reload()
 
     def reload(self):
@@ -54,8 +55,8 @@ class JSONFile:
         :return:
         """
         prepare(self.__filename, default=self.__default)
-        with open(self.__filename, "r") as file:
-            self.json = json.load(file)
+        with open(self.__filename, 'r') as file:
+            self.json = load(file)
 
     def save(self):
         """
@@ -63,5 +64,5 @@ class JSONFile:
         :return:
         """
         prepare(self.__filename, default=self.__default)
-        with open(self.__filename, "w") as file:
-            json.dump(self.json, file, indent=4, sort_keys=True)
+        with open(self.__filename, 'w') as file:
+            dump(self.json, file, indent=4, sort_keys=True)

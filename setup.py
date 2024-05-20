@@ -1,13 +1,15 @@
-from singlejson import VERSION
-
 import setuptools
+
+main_ns = {}
+with open('src/singlejson/version.py') as ver_file:
+    exec(ver_file.read(), main_ns)
 
 with open("README.md", "r", encoding="utf-8") as readme:
     long_description = readme.read()
 
 setuptools.setup(
     name="singlejson",
-    version=VERSION,
+    version=main_ns["__version__"],
     author="Qrashi",
     author_email="fritz@vibe.ac",
     description="A simple package providing easy to use JSON utilities",
