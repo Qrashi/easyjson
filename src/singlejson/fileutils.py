@@ -19,7 +19,7 @@ def prepare(file: str, default: str = "{}"):
     Prepare a file (check if it exists and create it if not)
     :param file: File to open
     :param default: default to save if file is nonexistent
-    :return: A TextIO representing the file
+    :return:
     """
     if not path.exists(file):
         makedirs(path.dirname(file), exist_ok=True)

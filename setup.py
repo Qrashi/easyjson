@@ -1,3 +1,5 @@
+from singlejson import VERSION
+
 import setuptools
 
 with open("README.md", "r", encoding="utf-8") as readme:
@@ -5,7 +7,7 @@ with open("README.md", "r", encoding="utf-8") as readme:
 
 setuptools.setup(
     name="singlejson",
-    version="0.2.3",
+    version=VERSION,
     author="Qrashi",
     author_email="fritz@vibe.ac",
     description="A simple package providing easy to use JSON utilities",
@@ -18,6 +20,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
     python_requires=">=3.6",
